@@ -11,7 +11,5 @@ The package has addition modules for simulating non-atmospheric signals. It can 
 
 Below is an example of the package in action: atmospheric emission, cosmic background radiation, and nosie were simulated for a 300 by 300 (90,000) pixel array spanning a 10-degree-wide square on the sky. Each pixel has a full-width at half-maximum of 1.0 arcminutes, and atmosphere and CMB were simulated at a resolution of 0.5 arcminutes.  
 
-(Click to view):
-
-[![Watch the video](https://user-images.githubusercontent.com/41275226/115456752-870e8c80-a1f1-11eb-8ba4-4e47a2ab306a.mp4)
+![Watch the video](https://user-images.githubusercontent.com/41275226/115456752-870e8c80-a1f1-11eb-8ba4-4e47a2ab306a.mp4)
 
