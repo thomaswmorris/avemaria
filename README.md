@@ -7,3 +7,13 @@ ARAM is a Python package that simulates and realizes time-ordered atmospheric fl
 The atmospheric model is comprised of turbulent fluctuations at different atmospheric layers, which have variable physical parameters. The parameters describe different aspects of the atmosphere, and include wind speed, wind bearing, average water vapor mass density, and temparature. ARAM can automatically generate parameters using a weather model based on historical MERRA-2 reanalysis for supported sites (the Atacama Desert, Tibet, and the South Pole). 
 
 The package has addition modules for simulating non-atmospheric signals. It can generate and return a time-ordered observation of a realization of the cosmic microwave background (CMB) for a given spectrum, but defaults to the T-T, E-T, and E-E spectra derived from ACTPol and WMAP datasets. It also has tools for reproducing noise characteristics native to polarization-sensitive bolometers. 
+
+
+
+
+Below is an example of the package in action: atmosphere was simulated at a 0.25 arcminute resolution, and sampled by 480 x 480 = 57,600 pixels with a full-width at half-maximum of 1.0 arcminutes. 
+
+
+
+[![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://youtu.be/vt5fpE0bzSY)
+
