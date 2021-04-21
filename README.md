@@ -8,7 +8,7 @@ The atmospheric model is comprised of turbulent fluctuations at different atmosp
 
 The package has addition modules for simulating non-atmospheric signals. It can generate and return a time-ordered observation of a realization of the cosmic microwave background (CMB) for a given spectrum, but defaults to the T-T, E-T, and E-E spectra derived from ACTPol and WMAP datasets. It also has tools for reproducing noise characteristics native to polarization-sensitive bolometers. 
 
-Below is an example of the package in action: atmospheric emission, cosmic background radiation, and noise were simulated at 100 Hz for a 180 by 180 (38,400) pixel array spanning a 3-degree-wide square on the sky, scanning at a speed of 2 degrees per second. Each pixel has a full-width at half-maximum of 1 arcminute, and atmosphere and CMB were simulated at a resolution of 0.25 arcminutes.  
+Below is an example of the package in action: atmospheric emission, cosmic background radiation, and noise were simulated at 100 Hz for a 180 by 180 (32,400) pixel array spanning a 3-degree-wide square on the sky, scanning at a speed of 2 degrees per second. Each pixel has a full-width at half-maximum of 1 arcminute, and atmosphere and CMB were simulated at a resolution of 0.25 arcminutes.  
 
 ![Watch the video](https://user-images.githubusercontent.com/41275226/115489537-539c2400-a22a-11eb-9f3f-013b4c5e8f6a.mp4)
 
