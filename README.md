@@ -27,25 +27,23 @@ Different models can be initialized by configurating different aspects of the mo
 
 ### Arrays
 
-The array defines the set of detectors that observe the sky. Detector positions can be supplied to the manually:
+The array defines the set of detectors that observe the sky. The input parameters, defined as their default values along with units and a brief description:
 
 ```python
-my_model = aram.model(array_config={'offset_x' : some_array_of_offsets_x,  
-                                    'offset_y' : some_array_of_offsets_y})
+my_model = aram.model(array_config={'array_shape' : 'hex',  # (none)  - the shape of the array. 
+                                    'n_detectors' : 600,    # (none)  - the number of detectors. 
+                                    'array_fov'   : 2       # (deg)   - maximum separation of detectors, in degrees. 
+                                    'fwhm'        : 5 / 60, # (deg)   - the full-width at half-maximum of the beams.
+                                    'band'        : 1.5e11, # (Hz)    - the observing band of the detectors, in Hz. 
+                                    'pink'        : 0,      # (mK/Hz) - scale factor for the pink noise spectrum. 
+                                    'white'       : 0})     # (mK/Hz) - scale factor for the white noise spectrum. 
 ```
-or automatically by the package 
+Alternatively, the array can be configured manually by supplying an array of values for each parameter
 ```python
-my_model = aram.model(array_config={'array_shape' : 'hex',
-                                    'n_detectors' : 600,
-                                    'array_fov'   : 2})
+my_model = aram.model(array_config={'offset_x' : some_array_of_offsets_in_radians_x,  
+                                    'offset_y' : some_array_of_offsets_in_radians_y})
 ```
-The other detectors characteristics are the beam resolution, observing band, and noise characteristics, which are supplied as 
-```python
-my_model = aram.model(array_config={'fwhm'  : 5 / 60, # the full-width at half-maximum of the beams, in degrees.
-                                    'band'  : 1.5e11, # the observing band of the detectors, in Hz. 
-                                    'pink'  : 0,      # scale factor for the pink noise spectrum, S(f) = a/f. 
-                                    'white' : 0})     # scale factor for the white noise spectrum, S(f) = a. 
-```
+
 
 
 ### Observations
