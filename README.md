@@ -15,12 +15,45 @@ By default, atmospheric emission simulated by ARAM is designed to resemble that 
 
 ## Examples and Usage 
 
-The main tool of the ARAM module is the model object, which is intitialized as 
+The main tool of the ARAM module is the model object, which can be easily intitialized as 
 
 ```python
 from aram import aram
 
 my_model = aram.model()
 ```
+
+Different models can be initialized by configurating different aspects of the model. 
+
+### Arrays
+
+The array defines the set of detectors that observe the sky. Detector positions can be supplied to the manually:
+
+```python
+my_model = aram.model(array_config={'offset_x' : some_array_of_offsets_x,  
+                                    'offset_y' : some_array_of_offsets_y})
+```
+or automatically by the package 
+```python
+my_model = aram.model(array_config={'array_shape' : 'hex',
+                                    'n_detectors' : 600,
+                                    'array_fov'   : 2})
+```
+The other detectors characteristics are the beam resolution, observing band, and noise characteristics, which are supplied as 
+```python
+my_model = aram.model(array_config={'fwhm'  : 5 / 60, # the far-field full-width at half-maximum of the beams, in degrees. Defaults to 5 arcminutes. 
+                                    'band'  : 1.5e11, # the observing band of the detectors, in Hz. Defaults to 150 GHz. 
+                                    'pink'  : 0,     # scale factor for the pink noise spectrum, S(f) = a/f. Defaults to zero. 
+                                    'white' : 0})     # scale factor for the white noise spectrum, S(f) = a. Defaults to zero. 
+```
+
+
+### Observations
+
+The observation defines the 
+
+### Sites
+
+The site determines the pointing angles of 
 
 
