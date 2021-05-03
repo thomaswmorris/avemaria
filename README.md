@@ -1,17 +1,40 @@
 # Auto-Regressive Atmospheric Modeling
 
-##Summary
+ARAM is a python-based package that simulates turbulent atmospheric emission using a auto-regressive gaussian process framework. 
 
-```python
-aram
-```
-is a 
+##Background
 
+The next generation of ground-based astronomical telescopes will observe the sky with hundreds of thousands of detectors at arcminute resolution. 
 
 
-The next generation of ground-based astronomical telescopes 
 
-As such, they require an efficient but faithful method of modeling 
+
+##Accuracy and Efficiency
+
+By default, atmospheric emission simulated by ARAM is designed to resemble that observed by the Atacama Cosmology Telescope (ACT) and the Atacama B-Mode Search (ABS), two CMB experiments in the Atacama Desert. An outline of the method and products used is outlined [here](https://github.com/tomachito/aram/blob/main/README.md). 
+
+
+
+
+
+Atmospheric modeling is an important step in experimental design 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
 
 
 This 
