@@ -11,7 +11,7 @@ By default, atmospheric emission simulated by ARAM is designed to resemble that 
 
 ## Examples and Usage 
 
-Below: a theoretical array of 40,000 detectors scans across a simulated map of the cosmic microwave background. Each detector has a resolution of an arcminute. 
+Below: a theoretical array of 60,000 detectors (each with a resolution of an arcminute) observes a simulated map of the cosmic microwave background through 16 simulated layers of atmospheric emission, at an elevation of 45 degrees and employing a constant-elevation scan of 2 degrees of azimuth per second. 
 
 ![Watch the video](https://user-images.githubusercontent.com/41275226/115489537-539c2400-a22a-11eb-9f3f-013b4c5e8f6a.mp4)
 
