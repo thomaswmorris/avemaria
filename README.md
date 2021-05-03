@@ -1,4 +1,23 @@
-# ARAM (Auto-Regressive Atmospheric Modeling)
+# Auto-Regressive Atmospheric Modeling
+
+##Summary
+
+```python
+aram
+```
+is a 
+
+
+
+The next generation of ground-based astronomical telescopes 
+
+As such, they require an efficient but faithful method of modeling 
+
+
+This 
+
+
+
 
 Uneven emission of the lower atmosphere is one of the largest sources of interference for ground-based telescopes observing in millimeter and sub-millimeter regimes. Accurately and efficiently simulating this interference is crucial for advances in data-analysis techniques. 
 
