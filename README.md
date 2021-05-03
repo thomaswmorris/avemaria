@@ -32,7 +32,7 @@ The array defines the set of detectors that observe the sky. The input parameter
 ```python
 my_model = aram.model(array_config={'array_shape' : 'hex',  # (none)  - the shape of the array. 
                                     'n_detectors' : 600,    # (none)  - the number of detectors. 
-                                    'array_fov'   : 2       # (deg)   - maximum separation of detectors, in degrees. 
+                                    'array_fov'   : 2,      # (deg)   - maximum separation of detectors, in degrees. 
                                     'fwhm'        : 5 / 60, # (deg)   - the full-width at half-maximum of the beams.
                                     'band'        : 1.5e11, # (Hz)    - the observing band of the detectors, in Hz. 
                                     'pink'        : 0,      # (mK/Hz) - scale factor for the pink noise spectrum. 
