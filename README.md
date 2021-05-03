@@ -15,5 +15,12 @@ By default, atmospheric emission simulated by ARAM is designed to resemble that 
 
 ## Examples and Usage 
 
+The main tool of the ARAM module is the model object, which is intitialized as 
+
+```python
+from aram import aram
+
+my_model = aram.model()
+```
 
 
