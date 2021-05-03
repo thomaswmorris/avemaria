@@ -43,7 +43,7 @@ The other detectors characteristics are the beam resolution, observing band, and
 ```python
 my_model = aram.model(array_config={'fwhm'  : 5 / 60, # the full-width at half-maximum of the beams, in degrees.
                                     'band'  : 1.5e11, # the observing band of the detectors, in Hz. 
-                                    'pink'  : 0,     # scale factor for the pink noise spectrum, S(f) = a/f. 
+                                    'pink'  : 0,      # scale factor for the pink noise spectrum, S(f) = a/f. 
                                     'white' : 0})     # scale factor for the white noise spectrum, S(f) = a. 
 ```
 
