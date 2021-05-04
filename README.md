@@ -8,12 +8,7 @@ ARAM is a python-based package that simulates turbulent atmospheric emission usi
 
 Atmospheric modeling is an important step in both experiment design and subsequent data analysis for ground-based cosmological telescopes observing the cosmic microwave background (CMB). The next generation of CMB experiments will be marked by a huge increase in data acquisition.
 
-By default, atmospheric emission simulated by ARAM is designed to resemble that observed by the Atacama Cosmology Telescope (ACT) and the Atacama B-Mode Search (ABS), two CMB experiments in the Atacama Desert. An outline of the method
-
-
-
-
- and products used is outlined [here](https://github.com/tomachito/aram/blob/main/README.md). 
+By default, atmospheric emission simulated by ARAM is designed to resemble that observed by the Atacama Cosmology Telescope (ACT) and the Atacama B-Mode Search (ABS), two CMB experiments in the Atacama Desert. An outline of the method and products used is outlined [here](https://github.com/tomachito/aram/blob/main/README.md). 
 
 
 
@@ -48,10 +43,10 @@ my_model = aram.model(array_config={'array_shape' : 'hex',  # (none)  - the shap
                                     'pink'        : 0,      # (mK/Hz) - scale factor for the pink noise spectrum. 
                                     'white'       : 0})     # (mK/Hz) - scale factor for the white noise spectrum. 
 ```
-Alternatively, the array can be configured manually by supplying an array of values for each parameter
+Alternatively, the array can be configured manually by supplying an array of values for each parameter. In this case, the first three parameters are replaced by
 ```python
-my_model = aram.model(array_config={'offset_x' : some_array_of_offsets_in_radians_x,  
-                                    'offset_y' : some_array_of_offsets_in_radians_y})
+my_model = aram.model(array_config={'offset_x' : some_array_of_offsets_x,  # in degrees
+                                    'offset_y' : some_array_of_offsets_y}) # in degrees
 ```
 
 
