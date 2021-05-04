@@ -2,7 +2,7 @@
 
 ARAM is a python-based package that simulates turbulent atmospheric emission using a auto-regressive gaussian process framework, for applications in observational astronomy. 
 
-![Watch the video](https://user-images.githubusercontent.com/41275226/117060681-29009f80-acef-11eb-969e-d2e01a3c071c.mp4)
+![Watch the video](https://user-images.githubusercontent.com/41275226/117068746-acbf8980-acf9-11eb-8016-64fa01e12a77.mp4)
 
 ## Background and Methodology
 
