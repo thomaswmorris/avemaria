@@ -1,6 +1,11 @@
 # Auto-Regressive Atmospheric Modeling
 
-ARAM is a python-based package that simulates turbulent atmospheric emission using a auto-regressive gaussian process framework, for applications in observational astronomy.
+ARAM is a python-based package that simulates turbulent atmospheric emission using a auto-regressive gaussian process framework, for applications in observational astronomy. To install, just put 
+
+```console
+pip install aram
+```
+in the command line. 
 
 ![Watch the video](https://user-images.githubusercontent.com/41275226/117060681-29009f80-acef-11eb-969e-d2e01a3c071c.mp4)
 
