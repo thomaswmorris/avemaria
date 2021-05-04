@@ -6,9 +6,9 @@ ARAM is a python-based package that simulates turbulent atmospheric emission usi
 
 ## Background and Methodology
 
-Atmospheric modeling is an important step in both experiment design and subsequent data analysis for ground-based cosmological telescopes observing the cosmic microwave background (CMB). The next generation of ground-based CMB experiments will be marked by a huge increase in data acquisition, with some telescopes to consist of hundreds of thousands of superconducting polarization-sensitive bolometers sampling the sky. This necessitates new methods of modeling and simulating atmospheric emission
+Atmospheric modeling is an important step in both experiment design and subsequent data analysis for ground-based cosmological telescopes observing the cosmic microwave background (CMB). The next generation of ground-based CMB experiments will be marked by a huge increase in data acquisition, with some telescopes to consist of hundreds of thousands of superconducting polarization-sensitive bolometers sampling the sky. This necessitates new methods of efficiently modeling and simulating atmospheric emission at small angular resolutions, with algorithms than can keep up with the high volume of modern telescopes. 
 
-By default, atmospheric emission simulated by ARAM is designed to resemble that observed by the Atacama Cosmology Telescope (ACT) and the Atacama B-Mode Search (ABS), two CMB experiments in the Atacama Desert. An outline of the method and products used is outlined [here](https://github.com/tomachito/aram/blob/main/README.md). 
+ARAM simulates layers of turbulent atmospheric emission according to a statistical model derived from observations of the atmosphere in the Atacama Desert, from the Atacama Cosmology Telescope (ACT) and the Atacama B-Mode Search (ABS). An outline of the method and products used is outlined [here](https://github.com/tomachito/aram/blob/main/README.md). 
 
 
 ## Examples and Usage 
