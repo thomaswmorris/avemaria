@@ -1,4 +1,4 @@
-# High-resolution Auto-Regressive Atmospheric Modeling (HARAM)
+# Auto-Regressive Atmospheric Modeling (HARAM)
 
 ARAM is a python-based package that simulates turbulent atmospheric emission using a auto-regressive gaussian process framework, for applications in observational astronomy. Below: a distribution of turbulent water vapor moves through the field of view of the observer. 
 
