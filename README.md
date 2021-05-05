@@ -13,12 +13,12 @@ ARAM simulates layers of turbulent atmospheric emission according to a statistic
 
 ## Examples and Usage 
 
-To install ARAM with PyPi, put 
+To install ARAM with PyPi, run
 
 ```console
 pip install aram
 ```
-in the command line. The main tool of the ARAM module is the model object, which can be easily intitialized as 
+The main tool of the ARAM module is the model object, which can be easily intitialized as 
 
 ```python
 from aram import aram
