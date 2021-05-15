@@ -21,12 +21,12 @@ To install ARAM with PyPi, run
 ```console
 pip install aram
 ```
-The main tool of the ARAM module is the model object, which can be easily intitialized as 
+The main tool of the ARAM module is the model object. The default model can be easily intitialized as 
 
 ```python
 from aram import aram
 
-my_model = aram.model()
+default_model = aram.model()
 ```
 
 Different models can be initialized by configurating different aspects of the model.
@@ -78,6 +78,35 @@ Longitude, latitude, and altitude can also be entered manually.
 
 The model defines the 
 
+```python
+model_config = {'n_layers'     : 8,        # number of layers of atmosphere to simulate
+                'weather_type' : 'random', # weather generation scheme 
+                'min_height'   : 1000,     # minumum atmosphere height (meters)
+                'max_height'   : 5000,     # maximum atmosphere height (meters)
+                'res'          : .5,       # atmosphere generation resolution (fraction of beam resolution)
+                'atm_rms'      : 50,       # desired total RMS of atmospheric signal
+```
+
+## Examples
+
+Passing these dictionaries as arguments produces a customized model
+
+```python
+from aram import aram
+
+my_model = aram.model(array_config=array_config,
+                      site_config=site_config,
+                      obs_config=obs_config,
+                      model_config=model_config)
+```
+Data can then be simulated from the model by running 
+
+```python
+data = my_model.simulate(do_atmosphere=True,
+                         do_cmb=True,
+                         do_noise=True)
+```
+This produces a dictionary called "data" which is indexed by the keys "atmosphere", "cmb" and "noise". 
 
 
 Below: a theoretical array of 30,000 detectors (each with a resolution of 2 arcminutes) observes a simulated map of the cosmic microwave background through 16 simulated layers of atmospheric emission, at an elevation of 45 degrees and employing a constant-elevation scan of 2 degrees of azimuth per second. 
