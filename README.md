@@ -108,6 +108,11 @@ data = my_model.simulate(do_atmosphere=True,
 ```
 This produces a dictionary called "data" which is indexed by the keys "atmosphere", "cmb" and "noise". In each entry is an array where the first dimension corresponds to detector index, and the second dimension to the time sample index. 
 
+### Caution
+
+Gaussian process regression is an $O(n^3)$
+
+
 
 Below: a theoretical array of 30,000 detectors (each with a resolution of 2 arcminutes) observes a simulated map of the cosmic microwave background through 16 simulated layers of atmospheric emission, at an elevation of 45 degrees and employing a constant-elevation scan of 2 degrees of azimuth per second. 
 
