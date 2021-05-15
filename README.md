@@ -29,36 +29,54 @@ from aram import aram
 my_model = aram.model()
 ```
 
-Different models can be initialized by configurating different aspects of the model. 
+Different models can be initialized by configurating different aspects of the model.
 
 ### Arrays
 
-The array defines the set of detectors that observe the sky. The input parameters, defined as their default values along with units and a brief description:
+The array defines the set of detectors that observe the sky, along with the properties of their optics and noise. The array is specified as a dictionary
 
 ```python
-my_model = aram.model(array_config={'array_shape' : 'hex',  # (none)  - the shape of the array. 
-                                    'n_detectors' : 600,    # (none)  - the number of detectors. 
-                                    'array_fov'   : 2,      # (deg)   - maximum separation of detectors, in degrees. 
-                                    'fwhm'        : 5 / 60, # (deg)   - the full-width at half-maximum of the beams.
-                                    'band'        : 1.5e11, # (Hz)    - the observing band of the detectors, in Hz. 
-                                    'pink'        : 0,      # (mK/Hz) - scale factor for the pink noise spectrum. 
-                                    'white'       : 0})     # (mK/Hz) - scale factor for the white noise spectrum. 
+array_config = {'array_shape' : 'hex',      # shape of array
+                  'array_fov' : .8,         # maximum span of array (deg)
+                          'n' : 500,        # maximum number of detectors (deg)
+                   'aperture' : 5.5,        # primary reflector size (meters)
+                     'optics' : 'diff_lim', # type of optical system 
+                       'band' : 150e9,      # observing band (in Hz)
+                       'pink' : 1e0,        # pink noise scaling (dB per octave)
+                      'white' : 1e0}        # white noise scaling (dB per Hz)
 ```
-Alternatively, the array can be configured manually by supplying an array of values for each parameter. In this case, the first three parameters are replaced by
+This supplies an diffraction-limited array with parameters similar to the Atacama Cosmology Telescope. Alternatively, the array can be configured manually by supplying an array of values for each parameter. In this case, the first three parameters are replaced by
+
 ```python
-my_model = aram.model(array_config={'offset_x' : some_array_of_offsets_x,  # in degrees
-                                    'offset_y' : some_array_of_offsets_y}) # in degrees
+array_config={'offset_x' : some_array_of_offsets_x,  # in degrees
+              'offset_y' : some_array_of_offsets_y}) # in degrees
 ```
-
-
 
 ### Observations
 
-The observation defines the 
+The observation defines the sampling time-ordered pointing
+```python
+obs_config = {'duration'  : 600,  # duration of observation (sec)
+              'samp_freq' : 20,   # sampling frequency, in Hz (deg)
+              'center_az' : 0,    # center azimuth of scan (deg)
+              'center_el' : 45,   # elevation of scan (deg)
+              'az_throw'  : 15,   # half of the scan width (deg)
+              'az_speed'  : 1.5}  # scanning speed (deg/s)
+```
+This defines a 10-minute-long observation at 20 Hz, scanning over 30 degrees at an elevation 45 degrees. The scan is centered due north, and scans at 1.5 degrees per second. 
 
 ### Sites
 
-The site determines the pointing angles of 
+The site determines the positions of celestial sources as the earth rotates under the telescope. For supported telescopes, the site also determines the weather generation that drives atmospheric fluctuations. 
+```python
+site_config = {'site'  : 'ACT',  # site name
+               'time'  : 1.6e9}  # timestamp (unix)
+```
+Longitude, latitude, and altitude can also be entered manually. 
+
+### Models
+
+The model defines the 
 
 
 
