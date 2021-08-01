@@ -8,25 +8,25 @@ MARIA is a python-based package that simulates turbulent atmospheric emission us
 
 Atmospheric modeling is an important step in both experiment design and subsequent data analysis for ground-based cosmological telescopes observing the cosmic microwave background (CMB). The next generation of ground-based CMB experiments will be marked by a huge increase in data acquisition, with some telescopes to consist of hundreds of thousands of superconducting polarization-sensitive bolometers sampling the sky. This necessitates new methods of efficiently modeling and simulating atmospheric emission at small angular resolutions, with algorithms than can keep up with the high volume of modern telescopes. 
 
-ARAM simulates layers of turbulent atmospheric emission according to a statistical model derived from observations of the atmosphere in the Atacama Desert, from the [Atacama Cosmology Telescope (ACT)](https://lambda.gsfc.nasa.gov/product/act/) and the [Atacama B-Mode Search (ABS)](https://lambda.gsfc.nasa.gov/product/abs/). It uses a sparse-precision auto-regressive Gaussian process algorithm that allows for both fast simulation of high-resolution atmosphere, as well as the ability to simulate arbitrarily long periods of atmospheric evolution. 
+maria simulates layers of turbulent atmospheric emission according to a statistical model derived from observations of the atmosphere in the Atacama Desert, from the [Atacama Cosmology Telescope (ACT)](https://lambda.gsfc.nasa.gov/product/act/) and the [Atacama B-Mode Search (ABS)](https://lambda.gsfc.nasa.gov/product/abs/). It uses a sparse-precision auto-regressive Gaussian process algorithm that allows for both fast simulation of high-resolution atmosphere, as well as the ability to simulate arbitrarily long periods of atmospheric evolution. 
 
 
-A comprehensive outline of the method and products used is outlined [here](https://github.com/tomachito/aram/blob/main/README.md). 
+A comprehensive outline of the method and products used is outlined [here](https://github.com/tomachito/maria/blob/main/README.md). 
 
 
 ## Examples and Usage 
 
-To install ARAM with PyPi, run
+To install MARIA with PyPi, run
 
 ```console
-pip install aram
+pip install maria
 ```
-The main tool of the ARAM module is the model object. The default model can be easily intitialized as 
+The main tool of the maria module is the model object. The default model can be easily intitialized as 
 
 ```python
-from aram import aram
+from maria import maria
 
-default_model = aram.model()
+default_model = maria.model()
 ```
 
 Different models can be initialized by configurating different aspects of the model.
@@ -92,12 +92,12 @@ model_config = {'n_layers'     : 8,        # number of layers of atmosphere to s
 Passing these dictionaries as arguments produces a customized model
 
 ```python
-from aram import aram
+from maria import maria
 
-my_model = aram.model(array_config=array_config,
-                      site_config=site_config,
-                      obs_config=obs_config,
-                      model_config=model_config)
+my_model = maria.model(array_config=array_config,
+                       site_config=site_config,
+                       obs_config=obs_config,
+                       model_config=model_config)
 ```
 Data can then be simulated from the model by running 
 
