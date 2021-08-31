@@ -62,7 +62,6 @@ pointing_config = {'scan_type' : 'CES', # scan pattern
                     'az_speed' : 1.5}   # scanning speed of the array, in degrees per second
 ```
 Alternatively, the pointing data may be given manually
-
 ```python
 pointing_config = {'time' : some_array_of_timestamps, # in seconds
              'focal_azim' : some_array_of_azimuths,   # in degrees
@@ -72,15 +71,13 @@ where focal_azim and focal_elev describe the angular pointing of the center of t
 
 ### Sites
 
-The site determines the motion of celestial sources as the earth rotates under the telescope, as well as the observing conditions.
-
+The site determines the motion of celestial sources as the earth rotates under the telescope, as well as the observing conditions. Below is the config for the ACT site:
 ```python
-site_config = {'site' : 'ACT',
+site_config = {'site' : 'ACT', 
                'time' : datetime.now(timezone.utc).timestamp(),
  'weather_gen_method' : 'random'} 
 ```
-
-For supported sites maria will generate weather data, which are used to inform the atmospheric simulation. Weather data are quantitatively realistic for a given site, altitude, time of day, and time of year, and are generated using the [weathergen](https://github.com/tomachito/weathergen) package. 
+Weather data are quantitatively realistic for a given site, altitude, time of day, and time of year, and are generated using the [weathergen](https://github.com/tomachito/weathergen) package. 
 
 ### Models
 
