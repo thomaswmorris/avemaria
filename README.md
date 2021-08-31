@@ -24,7 +24,7 @@ pip install maria
 The main tool of the maria module is the model object. The default model can be easily intitialized as 
 
 ```python
-from maria import maria
+import maria
 
 default_model = maria.model()
 ```
@@ -33,19 +33,21 @@ Different models can be initialized by configurating different aspects of the mo
 
 ### Arrays
 
-The array defines the set of detectors that observe the sky, along with the properties of their optics and noise. The array is specified as a dictionary
+The array config defines the set of detectors that observe the sky, along with the properties of their optics and noise. The array is specified as a dictionary
 
 ```python
 array_config = {'array_shape' : 'hex',      # shape of array
                   'array_fov' : .8,         # maximum span of array (deg)
                           'n' : 500,        # maximum number of detectors (deg)
-                   'aperture' : 5.5,        # primary reflector size (meters)
-                     'optics' : 'diff_lim', # type of optical system 
                        'band' : 150e9,      # observing band (in Hz)
-                       'pink' : 1e0,        # pink noise scaling (dB per octave)
-                      'white' : 1e0}        # white noise scaling (dB per Hz)
+                       
+array_config = {'shape' : 'hex',   # The shape of the distribution of detectors. Supported shapes are `hex', 'square', and 'flower'. 
+                    'n' : 10000,   # The number of detectors in the array.  
+                  'fov' : 2,       # The maximum width of the array's field-of-view on the sky, in degrees. 
+                 'band' : 1.5e11}  # The observing band of the detector, in Hz. 
+
 ```
-This supplies an diffraction-limited array with parameters similar to the Atacama Cosmology Telescope. Alternatively, the array can be configured manually by supplying an array of values for each parameter. In this case, the first three parameters are replaced by
+Alternatively, the array can be configured manually by supplying an array of values for each parameter. In this case, the first three parameters are replaced by
 
 ```python
 array_config={'offset_x' : some_array_of_offsets_x,  # in degrees
@@ -54,16 +56,25 @@ array_config={'offset_x' : some_array_of_offsets_x,  # in degrees
 
 ### Observations
 
-The observation defines the sampling time-ordered pointing
+The pointing config defines the time-ordered parameters of the simulation. Below is the config for a constant-elevation scan (CES) that observes at 90+/-45 degrees of azimuth and 60 degrees of elevation, sampling at 100Hz for ten minutes. 
+
 ```python
-obs_config = {'duration'  : 600,  # duration of observation (sec)
-              'samp_freq' : 20,   # sampling frequency, in Hz (deg)
-              'center_az' : 0,    # center azimuth of scan (deg)
-              'center_el' : 45,   # elevation of scan (deg)
-              'az_throw'  : 15,   # half of the scan width (deg)
-              'az_speed'  : 1.5}  # scanning speed (deg/s)
+pointing_config = {'scan_type' : 'CES', # scan pattern
+                    'duration' : 600,   # duration of the observation, in seconds 
+                   'samp_freq' : 100,   # sampling rate, in Hz
+                 'center_azim' : 90,    # azimuth of the center of the scan, in degrees
+                     az_throw' : 45,    # half of the azimuth width of the scan, in degrees
+                 'center_elev' : 60,    # observing elevation of the scan, in degrees
+                    'az_speed' : 1.5}   # scanning speed of the array, in degrees per second
 ```
-This defines a 10-minute-long observation at 20 Hz, scanning over 30 degrees at an elevation 45 degrees. The scan is centered due north, and scans at 1.5 degrees per second. 
+Alternatively, the pointing data may be given manually
+
+```python
+pointing_config = {'time' : some_array_of_timestamps, # in seconds
+             'focal_azim' : some_array_of_azimuths, # in seconds
+             'focal_elev' : some_array_of_elevations}   
+```
+where focal_azim and focal_elev describe the angular pointing of the center of the array. 
 
 ### Sites
 
