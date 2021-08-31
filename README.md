@@ -12,7 +12,7 @@ maria simulates layers of turbulent atmospheric emission according to a statisti
 
 ## Methodology
 
-maria auto-regressively simulates an multi-layeed two-dimensional "integrated" atmospheric model that is much cheaper to compute than a three-dimensional model, which can effectively describe time-evolving atmospheric emission. 
+maria auto-regressively simulates an multi-layeed two-dimensional "integrated" atmospheric model that is much cheaper to compute than a three-dimensional model, which can effectively describe time-evolving atmospheric emission. maria can thus effectively simulate correlated atmospheric emission for in excess of 100,000 detectors observing the sky concurrently. 
 
 ## Examples and Usage 
 
