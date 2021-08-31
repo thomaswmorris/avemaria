@@ -35,17 +35,11 @@ Different models can be initialized by configurating different aspects of the mo
 
 The array config defines the set of detectors that observe the sky, along with the properties of their optics and noise. The array is specified as a dictionary
 
-```python
-array_config = {'array_shape' : 'hex',      # shape of array
-                  'array_fov' : .8,         # maximum span of array (deg)
-                          'n' : 500,        # maximum number of detectors (deg)
-                       'band' : 150e9,      # observing band (in Hz)
-                       
+```python                       
 array_config = {'shape' : 'hex',   # The shape of the distribution of detectors. Supported shapes are `hex', 'square', and 'flower'. 
                     'n' : 10000,   # The number of detectors in the array.  
                   'fov' : 2,       # The maximum width of the array's field-of-view on the sky, in degrees. 
                  'band' : 1.5e11}  # The observing band of the detector, in Hz. 
-
 ```
 Alternatively, the array can be configured manually by supplying an array of values for each parameter. In this case, the first three parameters are replaced by
 
@@ -78,7 +72,7 @@ where focal_azim and focal_elev describe the angular pointing of the center of t
 
 ### Sites
 
-The site determines the motion of celestial sources as the earth rotates under the telescope, as well as the  
+The site determines the motion of celestial sources as the earth rotates under the telescope, as well as the observing conditions.
 
 ```python
 site_config = {'site' : 'ACT',
