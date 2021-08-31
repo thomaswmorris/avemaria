@@ -86,28 +86,18 @@ site_config = {'site' : 'ACT',
  'weather_gen_method' : 'random'} 
 ```
 
-For supported sites maria will generate weather data, which are used to inform the atmospheric simulation. Weather data are quantitatively realistic for a given site, altitude, time of day, and time of year, and are generated using the [weathergen](https://github.com/tomachito/weathergen) package. Longitude, latitude, and altitude may also be entered manually:
-
-```python
-site_config = {'site' : 'ACT',
-               'time' : datetime.now(timezone.utc).timestamp(),
- 'weather_gen_method' : 'random',
-             'region' : 'atacama' } 
-```
-
-
+For supported sites maria will generate weather data, which are used to inform the atmospheric simulation. Weather data are quantitatively realistic for a given site, altitude, time of day, and time of year, and are generated using the [weathergen](https://github.com/tomachito/weathergen) package. 
 
 ### Models
 
 The model defines the 
 
 ```python
-model_config = {'n_layers'     : 8,        # number of layers of atmosphere to simulate
-                'weather_type' : 'random', # weather generation scheme 
-                'min_height'   : 1000,     # minumum atmosphere height (meters)
-                'max_height'   : 5000,     # maximum atmosphere height (meters)
-                'res'          : .5,       # atmosphere generation resolution (fraction of beam resolution)
-                'atm_rms'      : 50,       # desired total RMS of atmospheric signal
+atmosphere_config = {'n_layers'        : 10,         # how many layers to simulate, based on the integrated atmospheric model 
+                    'min_depth'        : 500,        # the distance of the first layer from the telescope, in meters
+                    'max_depth'        : 10000,      # the distance of the second layer, in meters
+                    'atmosphere_rms'   : 50,         # the total RMS of atmospheric noise, in mK_CMB
+                    'outer_scale'      : 500}        # the outer scale of spatial fluctuations in emission, in meters
 ```
 
 ## Examples
@@ -115,33 +105,25 @@ model_config = {'n_layers'     : 8,        # number of layers of atmosphere to s
 Passing these dictionaries as arguments produces a customized model
 
 ```python
-from maria import maria
+import maria
 
-my_model = maria.model(array_config=array_config,
-                       site_config=site_config,
-                       obs_config=obs_config,
-                       model_config=model_config)
+my_model = model(atmosphere_config=atmosphere_config,
+                 pointing_config=pointing_config,
+                 beams_config=beams_config,
+                 array_config=array_config,
+                 site_config=site_config,
+                 verbose=True)
 ```
 Data can then be simulated from the model by running 
 
 ```python
-data = my_model.simulate(do_atmosphere=True,
-                         do_cmb=True,
-                         do_noise=True)
+data = my_model.sim()
 ```
-This produces a dictionary called "data" which is indexed by the keys "atmosphere", "cmb" and "noise". In each entry is an array where the first dimension corresponds to detector index, and the second dimension to the time sample index. 
+which returns an array where the first dimension corresponds to detector index, and the second dimension to the timesample index. 
 
 ### Caution
 
 Gaussian process regression has cubic complexity, which scales poorly (especially when coded in Python). Simulating large swaths of atmosphere at high resolutions can be extremely slow, so don't go crazy with the input parameters. 
 
 This package also produces large arrays: 1000 detectors sampling at 50 Hz for an hour is well over a gigabyte of data. 
-
-
-
-
-
-Below: a theoretical array of 30,000 detectors (each with a resolution of 2 arcminutes) observes a simulated map of the cosmic microwave background through 16 simulated layers of atmospheric emission, at an elevation of 45 degrees and employing a constant-elevation scan of 2 degrees of azimuth per second. 
-
-![Watch the video](https://user-images.githubusercontent.com/41275226/115489537-539c2400-a22a-11eb-9f3f-013b4c5e8f6a.mp4)
 
