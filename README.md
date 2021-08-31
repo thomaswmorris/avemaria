@@ -125,5 +125,5 @@ which returns an array where the first dimension corresponds to detector index, 
 
 Gaussian process regression has cubic complexity, which scales poorly (especially when coded in Python). Simulating large swaths of atmosphere at high resolutions can be extremely slow, so don't go crazy with the input parameters. 
 
-This package also produces large arrays: 1000 detectors sampling at 50 Hz for an hour is well over a gigabyte of data. 
+This package also produces large arrays: 1000 detectors sampling at 50 Hz for an hour is well over a gigabyte of data.
 
