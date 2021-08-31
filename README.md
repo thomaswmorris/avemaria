@@ -111,8 +111,7 @@ my_model = model(atmosphere_config=atmosphere_config,
                  pointing_config=pointing_config,
                  beams_config=beams_config,
                  array_config=array_config,
-                 site_config=site_config,
-                 verbose=True)
+                 site_config=site_config)
 ```
 Data can then be simulated from the model by running 
 
