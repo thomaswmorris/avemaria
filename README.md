@@ -71,19 +71,31 @@ Alternatively, the pointing data may be given manually
 
 ```python
 pointing_config = {'time' : some_array_of_timestamps, # in seconds
-             'focal_azim' : some_array_of_azimuths, # in seconds
-             'focal_elev' : some_array_of_elevations}   
+             'focal_azim' : some_array_of_azimuths,   # in degrees
+             'focal_elev' : some_array_of_elevations} # in degrees
 ```
 where focal_azim and focal_elev describe the angular pointing of the center of the array. 
 
 ### Sites
 
-The site determines the positions of celestial sources as the earth rotates under the telescope. For supported telescopes, the site also determines the weather generation that drives atmospheric fluctuations. 
+The site determines the motion of celestial sources as the earth rotates under the telescope, as well as the  
+
 ```python
-site_config = {'site'  : 'ACT',  # site name
-               'time'  : 1.6e9}  # timestamp (unix)
+site_config = {'site' : 'ACT',
+               'time' : datetime.now(timezone.utc).timestamp(),
+ 'weather_gen_method' : 'random'} 
 ```
-Longitude, latitude, and altitude can also be entered manually. 
+
+For supported sites maria will generate weather data, which are used to inform the atmospheric simulation. Weather data are quantitatively realistic for a given site, altitude, time of day, and time of year, and are generated using the [weathergen](https://github.com/tomachito/weathergen) package. Longitude, latitude, and altitude may also be entered manually:
+
+```python
+site_config = {'site' : 'ACT',
+               'time' : datetime.now(timezone.utc).timestamp(),
+ 'weather_gen_method' : 'random',
+             'region' : 'atacama' } 
+```
+
+
 
 ### Models
 
