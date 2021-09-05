@@ -57,7 +57,7 @@ pointing_config = {'scan_type' : 'CES', # scan pattern
                     'duration' : 600,   # duration of the observation, in seconds 
                    'samp_freq' : 100,   # sampling rate, in Hz
                  'center_azim' : 90,    # azimuth of the center of the scan, in degrees
-                     az_throw' : 45,    # half of the azimuth width of the scan, in degrees
+                    'az_throw' : 45,    # half of the azimuth width of the scan, in degrees
                  'center_elev' : 60,    # observing elevation of the scan, in degrees
                     'az_speed' : 1.5}   # scanning speed of the array, in degrees per second
 ```
